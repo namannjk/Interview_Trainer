@@ -1,0 +1,129 @@
+.mainContainer {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  font-size: 64px;
+  font-weight: bolder;
+  align-items: center;
+  justify-content: center;
+}
+
+.resultContainer,
+.historyItem {
+  flex-direction: row;
+  display: flex;
+  width: 400px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.historyContainer {
+  flex-direction: column;
+  display: flex;
+  height: 200px;
+  align-items: center;
+  flex-grow: 5;
+  justify-content: flex-start;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 260px;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.inputContainer > .errorLabel {
+  color: red;
+  font-size: 12px;
+}
+
+.inputBox {
+  height: 48px;
+  width: 400px;
+  font-size: large;
+  border-radius: 8px;
+  border: 1px solid grey;
+  padding-left: 8px;
+}
+
+.tagLine{
+  width: 70%;
+  margin: auto;
+  margin-top: 160px;
+  display: flex;
+  flex-direction: column;
+  color: whitesmoke;
+  align-items: center;
+}
+
+.primaryHeading{
+    font-size: 60px;
+}
+
+.secondaryHeading{
+    font-size: 35px;
+}
+
+/* navbar */
+
+.menu{
+  display: flex;
+  padding: 3px;
+  
+}
+
+.menu>li{
+  list-style: none;
+  margin: 15px;
+  font-weight: bolder;
+  font-size: 18px;
+  color: #d5d586;
+}
+
+.primartBtn{
+  background-color: black;
+  color: whitesmoke;
+  margin: 5px;
+}
+
+.white{
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+.menuItems{
+ color: #d5d586;
+ text-decoration: none;
+}
+
+
+.signup{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  
+}
+
+.signup>input{
+    width: 359px;
+    margin: 10px;
+    padding: 9px;
+}
