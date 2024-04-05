@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 const SignUp = () => {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -16,6 +17,7 @@ const SignUp = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          name : name,
           email: email,
           password: password,
         }),
@@ -25,10 +27,9 @@ const SignUp = () => {
   
       if (response.status === 200) {
    
-        console.log("Registration successful");
+        alert("Registration Successfull");
       } else {
-  
-        console.log("Registration failed");
+
         alert("A user already exist with this email")
       }
     } catch (error) {
@@ -44,6 +45,12 @@ const SignUp = () => {
   return (
     <div>
       <form className = "signup" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Your Full Name"
+        value={name}
+        onChange={(event) => setName(event.target.value)}
+      />
       <input
         type="email"
         placeholder="Email"

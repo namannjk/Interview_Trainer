@@ -1,3 +1,8 @@
 body{
-  background-image: url("https://c1.wallpaperflare.com/preview/967/303/707/vintage-boards-wood-the-background-texture.jpg");
+  background-color: skyblue
+  /* background-image: url("https://c1.wallpaperflare.com/preview/967/303/707/vintage-boards-wood-the-background-texture.jpg"); */
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
