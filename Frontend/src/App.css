@@ -89,18 +89,24 @@
   
 }
 
-.menu>li{
+/* .menu>li{
   list-style: none;
   margin: 15px;
   font-weight: bolder;
   font-size: 18px;
   color: #d5d586;
-}
+} */
 
 .primartBtn{
-  background-color: black;
-  color: whitesmoke;
-  margin: 5px;
+  background-color: rgb(59 130 246);
+  border-radius: 10px;
+  border: transparent;
+  padding: 7px 25px;
+  color: white;
+}
+
+.primartBtn:hover{
+  background-color: rgb(87, 146, 241);
 }
 
 .white{
@@ -108,10 +114,10 @@
   text-decoration: none;
 }
 
-.menuItems{
+/* .menuItems{
  color: #d5d586;
  text-decoration: none;
-}
+} */
 
 
 .signup{

@@ -2,9 +2,13 @@
 
 const About =  ()=>{
     return(
-        <div className="about">
-        <h1>WHO WE ARE</h1>
-        <p className="abstract">In the contemporary job market, effective interview preparation is pivotal for candidates
+        <div className="h-screen bg-blend-color-burn bg-hero-pattern bg-cover flex flex-col items-cente gap-5">
+        <div className="flex flex-col items-center gap-1">
+        <h1 className="text-center mt-16 font-sans text-4xl">WHO WE ARE</h1>
+        <div className="w-[300px] h-1 bg-blue-500"></div>
+        </div>
+        <p className="font-sans text-center text-xl ml-12 mr-12 bg-slate-300 p-3 border-2 border-blue-400 rounded-xl drop-shadow-xl">
+        In the contemporary job market, effective interview preparation is pivotal for candidates
         striving to secure their desired positions. "Interview Trainer" is a innovative platform
         designed to address this need by providing a unique space where both interviewers and
         interviewees can actively participate in the interview preparation process. This platform,
