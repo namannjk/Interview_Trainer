@@ -35,7 +35,7 @@ const Login = () => {
         alert("Successfully login");
         const {name , email , _id} = responseData;
         console.log(_id);
-        dispatch(addUser({name,email,_id}));
+        dispatch(addUser({name,email,_id,id}));
         if(Data.id==1)
         navigate(`/book/${_id}`);
         else

@@ -6,8 +6,29 @@ import Interviewer from "./models/InterviewerFormat.js";
 import Candidate from "./models/candidateFormat.js";
 import slots from "./models/Slots.js";
 import BookedSlot from "./models/bookedSlot.js";
+import multer from "multer";
+import path from "path";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+// Get the current file's URL
+const __filename = fileURLToPath(import.meta.url);
+
+// Get the directory name of the current file
+const __dirname = dirname(__filename);
 const app = express();
 
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './uploads');
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + "-" + file.originalname); // Use original filename
+  }
+});
+
+const upload = multer({ storage: storage })
 // Connect to MongoDB Atlas
 mongoose
   .connect(
@@ -28,7 +49,7 @@ mongoose
 app.use(cors()); // Enable CORS for all routes
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 // Routes
 
 app.post("/addSlot", async (req, res) => {
@@ -61,20 +82,28 @@ app.post("/bookingSlot",async (req,res)=>{
     const slotId = req.body.slotId;
     const deletedSlot = await slots.findByIdAndDelete(slotId); // Convert slotId to ObjectId and await deleteOne
     console.log(deletedSlot);
+    console.log(req.body.interviewerId);
+    const interviewerData = await Interviewer.findById(req.body.interviewerId);
+    console.log(interviewerData);
     const slotData = {
-        name : req.body.name,
-        email : req.body.email,
-        phone : req.body.phone,
+        candidateName : req.body.name,
+        candidateEmail : req.body.email,
+        candidatePhone : req.body.phone,
+        candidateId : req.body.candidateId,
+        interviewerId : req.body.interviewerId,
+        candidateProfileImageURL : "",
+        interviewerId : req.body.interviewerId,
+        interviewerName : interviewerData.name,
+        interviewerEmail : interviewerData.email,
+        interviewerProfileImageURL : interviewerData.profileImageURL,
         purpose : req.body.purpose,
         slotId : req.body.slotId,
-        interviewerId : req.body.interviewerId,
-        candidateId : req.body.candidateId,
         date : deletedSlot.date,
-        time : deletedSlot.time
+        time : deletedSlot.time,
     }
    const newSlot = new BookedSlot(slotData);
    await newSlot.save();
-   console.log(newSlot);
+   console.log("newSlot Details" + newSlot);
    
    res.send(newSlot)
 
@@ -86,12 +115,15 @@ app.post("/bookingSlot",async (req,res)=>{
 });
 
 app.post("/getUpcomingList",async (req,res)=>{
-
+  console.log("inside in futire route");
     try{
       const interviewerId = req.body.id;
-      console.log(interviewerId);
-      const list = await BookedSlot.find({interviewerId : interviewerId});
+      console.log("interviewer ID" + interviewerId);
+      var list = await BookedSlot.find({interviewerId : interviewerId});
       console.log(list);
+      if(list.length==0){
+        list = await BookedSlot.find({candidateId : interviewerId});
+      }
       res.json(list);
     }
     catch{
@@ -109,13 +141,29 @@ app.get("/allInterviewerList",async (req,res)=>{
     res.status(500).send("failed");
   }
 })
-app.post("/register", async (req, res) => {
-  try {
-    const data = req.body;
 
-    console.log(data);
+
+
+app.post("/register",upload.single("profileImage"), async (req, res) => {
+   try {
+    const data = req.body; // Form fields other than the image
+    const profileImage = req.file; // Uploaded image file
+
+
     if (data.charges) {
-      const newInterviewer = new Interviewer(data);
+      const interviewer = {
+        name : data.name,
+        email : data.email,
+        password : data.password,
+        currentCompany : data.currentCompany,
+        experiance : data.experiance,
+        charges : data.charges,
+        description : data.description,
+        profileImageURL : profileImage.path
+      }
+  
+      console.log(interviewer); 
+      const newInterviewer = new Interviewer(interviewer);
       await newInterviewer.save();
     } else {
       const newCandidate = new Candidate(data);

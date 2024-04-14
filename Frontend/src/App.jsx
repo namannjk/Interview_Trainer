@@ -77,6 +77,7 @@ import { Provider } from 'react-redux';
 import store from './utils/store';
 import Schedule from './components/ScheduleInterview';
 import InterviewerInterface from './components/InterviewerUI/InterviewerInterface';
+import Upcoming from './components/InterviewerUI/Upcoming';
 
 function App() {
   return (
@@ -92,6 +93,7 @@ function App() {
           <Route path="/book/:id" element={<Interviewer />} />
           <Route path = "/interviewer-dahboard/:id" element = {<InterviewerInterface/>}/>
           <Route path = "/schedule/:id" element = {<Schedule/>}/>
+          <Route path = "/Upcoming" element = { <Upcoming/> }/>
         </Routes>
       </Router>
     </Provider>

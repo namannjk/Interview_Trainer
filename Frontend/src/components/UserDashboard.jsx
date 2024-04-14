@@ -94,6 +94,7 @@ const Interviewer = ()=>{
 
   console.log(id);
   const user = useSelector(store => store.userInfo);
+  
   console.log(user);
     return(
         <div>

@@ -31,6 +31,10 @@ const objSchema = new Schema({
     },
     description: {
         type: String,
+    },
+    profileImageURL : {
+       type : String,
+       required : true
     }
 });
 

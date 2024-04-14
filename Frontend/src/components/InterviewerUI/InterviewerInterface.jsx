@@ -22,6 +22,7 @@ const InterviewerInterface = ()=>{
     useEffect(()=>{
         const handleUpdate = async ()=>{
             const slotData = await axios.post("http://localhost:3000/getUpcomingList",{id});
+            console.log("slotData" + slotData.data);
             setInterviewList(slotData.data);
         }
         handleUpdate();

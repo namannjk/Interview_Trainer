@@ -5,18 +5,22 @@ const userInfoSlice = createSlice({
     initialState: {
         name: "",
         email: "",
-        id: ""
+        id: "",
+        IorC : -1
     },
     reducers: {
         addUser: (state, action) => {
             state.name = action.payload.name;
             state.email = action.payload.email;
             state.id = action.payload._id;
+            state.IorC = action.payload.id;
+            
         },
         removeUser: (state) => {
             state.name = "";
             state.email = "";
             state.id = ""
+            state.IorC = -1
         }
     }
 });
