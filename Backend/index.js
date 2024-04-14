@@ -32,7 +32,7 @@ const upload = multer({ storage: storage })
 // Connect to MongoDB Atlas
 mongoose
   .connect(
-    "mongodb+srv://namankhrj:Ajain887800@interviewtrainer.mxzu5nl.mongodb.net/?retryWrites=true&w=majority&appName=InterviewTrainer",
+    "mongodb+srv://namankhrj:[password]interviewtrainer.mxzu5nl.mongodb.net/?retryWrites=true&w=majority&appName=InterviewTrainer",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
