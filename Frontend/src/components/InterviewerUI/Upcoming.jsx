@@ -17,11 +17,14 @@ const Upcoming = ()=>{
         updateList();
     },[]);
     return(
-        <div>
+        <>
+        <h1 className="text-center">Your Upcoming Interview</h1>
+        <div className="w-1/2 m-auto">
             {list.map((interview)=>{
                 return <InterviewCards {...interview}/>
             })}
         </div>
+        </>
     );
 }
 
