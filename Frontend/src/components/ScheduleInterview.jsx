@@ -53,7 +53,7 @@ const Schedule = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center ">
+    <div className="flex flex-col items-center justify-center bg-hero-pattern bg-cover h-screen">
       <h2 className="text-3xl font-semibold mb-8">Book Now</h2>
       <form className="w-full max-w-md" onSubmit={handleSubmit}>
         <div className="mb-4">
@@ -73,7 +73,7 @@ const Schedule = () => {
           />
         </div>
         <div className="mb-4">
-          <input
+            <input
             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
             type="tel"
             id = "phone"

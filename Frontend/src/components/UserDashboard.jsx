@@ -96,8 +96,9 @@ const Interviewer = ()=>{
   const user = useSelector(store => store.userInfo);
   console.log(user);
     return(
-        <div>
-        <h1 className="mainHeading">Choice The Interviewer Of Your Match</h1>
+        <div className="bg-hero-pattern bg-cover h-screen flex flex-col justify-center items-center">
+        <h1 className="text-center text-4xl text-gray-700 p-3 mb-5 font-bold">Choice The Interviewer Of Your Match</h1>
+        
         <div className="container interviewList">
 
             {interviewList.map((Interviewer)=>{

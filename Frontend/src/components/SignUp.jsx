@@ -43,27 +43,29 @@ const SignUp = () => {
   
 
   return (
-    <div>
-      <form className = "signup" onSubmit={handleSubmit}>
-      <input
+    <div className="bg-hero-pattern bg-cover h-screen flex justify-center items-center">
+      <form className="flex flex-col w-[500px] p-5 bg-gray-300 gap-y-3 rounded-xl border-2 border-blue-300" 
+      onSubmit={handleSubmit}>
+      <input className="p-2 rounded-md text-center"
         type="text"
         placeholder="Your Full Name"
         value={name}
         onChange={(event) => setName(event.target.value)}
       />
-      <input
+      <input className="p-2 rounded-md text-center"
         type="email"
         placeholder="Email"
         value={email}
         onChange={(event) => setEmail(event.target.value)}
       />
-      <input
+      <input className="p-2 rounded-md text-center"
         type="password"
         placeholder="Password"
         value={password}
         onChange={(event) => setPassword(event.target.value)}
       />
-      <button className = "btn btn-dark " type="submit">Sign Up</button>
+      <button className="w-full p-2 bg-blue-500 text-center border-2 border-blue-600 text-xl font-semibold rounded-lg text-white hover:bg-blue-700" 
+      type="submit">Sign Up</button>
     </form>
     </div>
    

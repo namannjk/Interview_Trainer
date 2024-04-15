@@ -50,48 +50,65 @@ const Login = () => {
   }
 
   return (
-    <>
-      <div className={'mainContainer'}>
-        <div className={'titleContainer'}>
+    <div className='bg-hero-pattern bg-cover h-screen flex justify-center items-center'>
+      <div className='w-[600px] flex flex-col justify-center items-center gap-y-2 bg-gray-300 border-2 border-blue-200 rounded-xl p-3'>
+        <div className={"titleContainer"}>
           <div>Login</div>
         </div>
         <br />
-        <div className={'inputContainer'}>
+        <div className={"inputContainer"}>
           <input
             value={email}
             placeholder="Enter your email here"
             onChange={(ev) => setEmail(ev.target.value)}
-            className={'inputBox'}
+            className={"inputBox"}
           />
           <label className="errorLabel">{emailError}</label>
         </div>
         <br />
-        <div className={'inputContainer'}>
+        <div className={"inputContainer"}>
           <input
             value={password}
             placeholder="Enter your password here"
             onChange={(ev) => setPassword(ev.target.value)}
-            className={'inputBox'}
+            className={"inputBox"}
           />
           <label className="errorLabel">{passwordError}</label>
         </div>
         <br />
-        <div className="flex">
-          <div>
-       <input type="radio" id="Interviewer" name="fav_language" value="Interviewer" onClick={()=>setId(0)}/>
-       <label for="Interviewer">Interviewer</label>
-       </div>
-       <div>
-       <input type="radio" id="Candidate" name="fav_language" value="Candidate" onClick={()=>setId(1)}/>
-       <label for="Candidate">Candidate</label>
-       </div>
-       </div>
+        <div className="flex gap-x-8 justify-center items-center">
+          <div className='flex gap-x-2 items-center p-1 bg-gray-500 rounded-full cursor-pointer hover:bg-gray-600'>
+            <input
+              type="radio"
+              id="Interviewer"
+              name="fav_language"
+              value="Interviewer"
+              onClick={() => setId(0)}
+            />
+            <label className='text-white text-base font-semibold cursor-pointer' for="Interviewer">Interviewer</label>
+          </div>
+          <div className='flex gap-x-2 items-center p-1 bg-gray-500 rounded-full cursor-pointer hover:bg-gray-600'>
+            <input
+              type="radio"
+              id="Candidate"
+              name="fav_language"
+              value="Candidate"
+              onClick={() => setId(1)}
+            />
+            <label className='text-white text-base font-semibold cursor-pointer' for="Candidate">Candidate</label>
+          </div>
+        </div>
 
-        <div className={'inputContainer'}>
-          <input className="bg-black p-2 m-2 text-white rounded-md" type="button" onClick={onButtonClick} value={'Log in'} />
+        <div className={"inputContainer"}>
+          <input
+            className="w-full py-2 px-8 bg-blue-500 text-center border-2 border-blue-600 text-xl font-semibold rounded-lg text-white hover:bg-blue-700"
+            type="button"
+            onClick={onButtonClick}
+            value={"Log in"}
+          />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 const Cards = ({_id,profileUrl,name,currentCompany,experiance,charges,description}) => {
   return (
     <>
-      <div className="card" style={{width : "18rem"}}>
+      <div className="bg-white flex flex-col justify-center items-center gap-y-2" style={{width : "18rem"}}>
         <img src="/public/images/naman.png" className="card-img-top" alt="..." />
-        <div className="card-body">
+        <div className="flex flex-col gap-y-1">
           <h5 className="card-title">Name - {name}</h5>
           <h5 className="card-title">Current Company - {currentCompany}</h5>
           <h5 className="card-title">Experiance - {experiance}</h5>
-          <h5 className="card-title">Charges - {charges}</h5>
+          <h5 className="card-title">Charges - Rs. {charges}</h5>
           <p className="card-text">
             {description}
           </p>

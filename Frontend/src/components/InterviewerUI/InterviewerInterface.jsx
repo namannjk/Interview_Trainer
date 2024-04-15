@@ -27,17 +27,20 @@ const InterviewerInterface = ()=>{
         handleUpdate();
     },[id]);
     return(
-        <div className="flex">
-            <div className="w-1/2 text-center">
-                <h1>Your Upcoming Interview</h1>
+        <div className="bg-hero-pattern bg-cover h-screen flex justify-center">
+            <div className="flex w-[90%] bg-gray-300 h-screen">
+            <div className="w-1/2 text-center  mt-5">
+                <h1 className="text-3xl font-semibold text-gray-600">Your Upcoming Interview</h1>
                 {interviewList.map((Interview)=>{
                     return <InterviewCards key ={Interview.slotId} {...Interview}/>
                 })}
             </div>
-            <div className="w-1/2 text-center">
+            <div className="w-1/2 text-center mt-5">
             <div className="h-1/2">
-                <h2>Update Your availbility</h2>
-                <Calendar id = {id}/>
+                <h2 className="text-3xl font-semibold text-gray-600">Update Your availbility</h2>
+                <div className="mt-5">
+                    <Calendar id = {id} />
+                </div>
             </div>
             {/* <div className="h-1/2 p-5 m-2">
                 <h2>Completed Interview</h2>
@@ -46,6 +49,7 @@ const InterviewerInterface = ()=>{
                 })}
             </div> */}
             </div>
+        </div>
         </div>
     );
 }

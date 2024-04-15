@@ -72,13 +72,13 @@ const Calendar = ({id}) => {
             onChange={handleChange}
           />
         </label>
-        <button type="submit" className="btn btn-primary">Add</button>
+        <button type="submit" className="p-2 bg-blue-500 text-white rounded-md">Add</button>
       </form>
 
-      <div>
-        <h2>Your Availble Slots</h2>
+      <div className=" mt-4">
+        <h2 className="text-xl text-gray-600 font-semibold mb-2">Your Availble Slots</h2>
         {slots.map((slot)=>{
-          return <p> {slot.date.slice(0,10)} - {slot.time}</p>
+          return <p > {slot.date.slice(0,10)} - {slot.time}</p>
         })}
       </div>
     </div>
